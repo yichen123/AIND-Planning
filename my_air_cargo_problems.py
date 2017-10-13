@@ -218,7 +218,7 @@ class AirCargoProblem(Problem):
         kb.tell(decode_state(state, self.state_map).pos_sentence())
         for clause in self.goal:
             if clause not in kb.clauses:
-                count += 1      
+                count += 1
         return count
 
 
@@ -274,15 +274,15 @@ def air_cargo_p2() -> AirCargoProblem:
             expr('In(C3, P1)'),
             expr('In(C3, P2)'),
             expr('In(C3, P3)'),
-            expr('At(P1, SFO)'),
+            expr('At(P2, SFO)'),
             expr('At(P1, ATL)'),
-            expr('At(P2, JFK)'),
+            expr('At(P1, JFK)'),
             expr('At(P2, ATL)'),
             expr('At(P3, JFK)'),
             expr('At(P3, SFO)'),
-            expr('At(C1, SFO)'),
+            expr('At(C2, SFO)'),
             expr('At(C1, ATL)'),
-            expr('At(C2, JFK)'),
+            expr('At(C1, JFK)'),
             expr('At(C2, ATL)'),
             expr('At(C3, JFK)'),
             expr('At(C3, SFO)'),
@@ -307,9 +307,9 @@ def air_cargo_p3() -> AirCargoProblem:
     # ∧ Plane(P1) ∧ Plane(P2)
     # ∧ Airport(JFK) ∧ Airport(SFO) ∧ Airport(ATL) ∧ Airport(ORD))
 
-    cargos = ['C1', 'C2', 'C3']
+    cargos = ['C1', 'C2', 'C3', 'C4']
     planes = ['P1', 'P2']
-    airports = ['JFK', 'SFO', 'ATL', 'ORD']
+    airports = ['SFO', 'JFK', 'ATL', 'ORD']
 
     pos = [expr('At(C1, SFO)'),
             expr('At(C2, JFK)'),
